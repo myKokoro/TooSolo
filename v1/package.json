@@ -1,14 +1,17 @@
 {
     "name" : "solo",
-    "version" : "2.0",
-    "description" : "Solo——基于NodeJS构建的静态博客",
+    "version" : "0.0.0",
+    "description" : "独唱团",
     "main" : "app.js",
     "dependencies": {
         "node-markdown": "latest"
     },
     "devDependencies": {
+        "mocha": "latest",
+        "chai": "latest"
     },
     "scripts" : {
+        "test" : "test"
     },
     "repository" : {
         "type" : "git",
@@ -17,9 +20,11 @@
     "keywords" : [
         "blog",
         "solo",
+        "party",
+        "独唱团",
         "node",
         "github"
     ],
-    "author" : "TooBug",
+    "author" : "lamb",
     "license" : "MIT"
 }
