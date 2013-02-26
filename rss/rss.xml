@@ -1,50 +1,48 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="utf-8" />
-	<meta name="description" content="TooBug - 专注前端开发" />
-	<meta name="keywords" content="TooBug,web前端,前端,HTML,CSS,JavaScript,js" />
-	<title>TooBug</title>
-	<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico">
-	<link rel="stylesheet" href="./skin/default/css/light.css" />
-	<link rel="stylesheet" href="./js/prettify/prettify.css"   />
-	<script src="./js/prettify/prettify.js"></script>
-	<script src="./js/jquery/jquery-1.7.2.min.js"></script>
-	<script src="./js/index.js"></script>
-</head>
-<body>
-<header>
-	<div id="logo"><a href="/">TooBug</a></div>
-	<nav>
-		<ul>
-			<li><a href="/index.html">Index<br />首页</a></li>
-			<li><a href="/about.html">About<br />关于</a></li>
-		</ul>
-	</nav>
-</header>
-<section id="sidebar">
-	<div id="intro">
-		<p><strong>TooBug</strong>，前端工程师，目前就职于<a href="http://cdc.tencent.com" target="_blank">腾讯CDC</a>。关注体验设计，关注大前端生态圈。</p>
-		<p>新浪微博：<a href="http://weibo.com/toooobug" target="_blank">@TooBug</a></p>
-		<p>腾讯微博：<a href="http://t.qq.com/TooBug" target="_blank">@TooBug</a></p>
-		<p>GitHub：<a href="https://github.com/toooobug" target="_blank">@TooBug</a></p>
-	</div>
-</section>
-
-
-<section id="content">
-	<div id="article">
-		
-			<div class="indexarticle">
-			<h1><a href="./article/test5.html">这是文章的标题</a></h1>
-
-<p><em>2012-07-19 16:56</em></p>
-
-<p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Solo</title>
+    <link>http://www.toobug.net</link>
+    <description>TooBug - 专注前端开发</description>
+    <lastBuildDate>Thu, 24 Jan 2013 12:34:36 +0800</lastBuildDate>
+    <generator>Solo 2.0</generator>
+  </channel>
+  <item>
+    <title>测试兼容farbox</title>
+    <link>http://www.toobug.net/article/a-strange-phenomenon-of-udisk.html</link>
+    <guid isPermaLink="true">http://www.toobug.net/article/a-strange-phenomenon-of-udisk.html</guid>
+    <pubDate>Thu, 24 Jan 2013 12:34:36 +0800</pubDate>
+    <category>tag</category>
+    <category>tag</category>
+    <description>
+      <![CDATA[
+      <p>曾经，有一部电影，名叫Solo（独行者）。其实情节很俗套，无非是生物科技发达，让人死而复生，变成“机器人”一样去打仗，同样俗套的是后面必须会有伦理的斗争，Solo获得意识，而类似的实验被终止。不过，令我一直念念不忘的是它的名字，Solo——独行者。</p>
+      ]]>
+    </description>
+  </item>
+  <item>
+    <title>你好，Solo &amp; GitHub!</title>
+    <link>http://www.toobug.net/article/test.html</link>
+    <guid isPermaLink="true">http://www.toobug.net/article/test.html</guid>
+    <pubDate>Thu, 16 Aug 2012 18:24:00 +0800</pubDate>
+    <description>
+      <![CDATA[
+      <p>曾经，有一部电影，名叫Solo（独行者）。其实情节很俗套，无非是生物科技发达，让人死而复生，变成“机器人”一样去打仗，同样俗套的是后面必须会有伦理的斗争，Solo获得意识，而类似的实验被终止。不过，令我一直念念不忘的是它的名字，Solo——独行者。</p>
+      ]]>
+    </description>
+  </item>
+  <item>
+    <title>这是文章的标题</title>
+    <link>http://www.toobug.net/article/tes2.html</link>
+    <guid isPermaLink="true">http://www.toobug.net/article/tes2.html</guid>
+    <pubDate>Thu, 19 Jul 2012 16:56:00 +0800</pubDate>
+    <description>
+      <![CDATA[
+      <p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
 
 <p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
 
-<p>测试段落测试段落</p>
+<p>测试段落测试段落test</p>
 
 <p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
 
@@ -56,18 +54,21 @@
 console.log(fuck == 404);
 // true
 </code></pre>
-			</div>
-		
-			<div class="indexarticle">
-			<h1><a href="./article/test7.html">这是文章的标题</a></h1>
-
-<p><em>2012-07-19 16:56</em></p>
-
-<p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
+      ]]>
+    </description>
+  </item>
+  <item>
+    <title>这是文章的标题</title>
+    <link>http://www.toobug.net/article/test3.html</link>
+    <guid isPermaLink="true">http://www.toobug.net/article/test3.html</guid>
+    <pubDate>Thu, 19 Jul 2012 16:56:00 +0800</pubDate>
+    <description>
+      <![CDATA[
+      <p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
 
 <p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
 
-<p>测试段落测试段落</p>
+<p>测试段落测试段落MORE</p>
 
 <p>测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落测试段落</p>
 
@@ -79,21 +80,7 @@ console.log(fuck == 404);
 console.log(fuck == 404);
 // true
 </code></pre>
-			</div>
-		
-
-		<div id="pagination">
-		
-			<a href="index.html">1</a>
-		
-			<a href="index_page2.html">2</a>
-		
-		</div>
-	</div>
-</section>
-<div id="foot">
-		<p>Powered by <a href="https://github.com/TooooBug/solo"  target="_blank">Solo</a></p>
-</div>
-		
-</body>
-</html>
+      ]]>
+    </description>
+  </item>
+</rss>
