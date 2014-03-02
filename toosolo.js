@@ -108,31 +108,6 @@ function _dealParserPlugins(callback){
 		callback();
 	});
 
-	/*var parserPluginFileList = util.readdirSyncRecursive()),
-		// pluginsDfd = Q.when(),
-		// thisDfd = Q.defer();
-
-	parserPluginFileList.forEach(function(plugin){
-
-		if(config.disabledParserPlugins && config.disabledParserPlugins.indexOf(plugin.replace(/\.js$/,'')) > -1)return;
-
-		if(/\.js$/.test(plugin)){
-
-			var pluginName = plugin.replace(/\.js$/,'');
-			plugins[pluginName] = require('./lib/parserplugins/'+plugin);
-			// pluginsDfd = pluginsDfd.then(plugins[pluginName]);
-
-		}
-
-	});
-	pluginsDfd.then(function(){
-		thisDfd.resolve();
-	}).fail(function(error){
-		console.log(error);
-	})
-
-	return thisDfd.promise;*/
-
 }
 
 function _dealPagePlugins(callback){
@@ -148,8 +123,8 @@ function _dealPagePlugins(callback){
 		var pluginList = [];
 		fileList.forEach(function(pluginFile){
 			var pluginName = pluginFile.replace(/\.js$/,'');
-			var disabledList = config.disabledParserPlugins;
-			if(!disabledList || disabledList.indexOf(plugin) === -1){
+			var disabledList = config.disabledPagePlugins;
+			if(!disabledList || disabledList.indexOf(pluginName) === -1){
 				if(/\.js$/.test(pluginFile)){
 					pluginList.push(require(path.join(pagePluginsPath,pluginName)));
 				}
