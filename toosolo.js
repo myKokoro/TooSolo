@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 var path = require('path'),
-	Q = require('q'),
+	fs = require('fs'),
+	async = require('async'),
 	commander = require('commander'),
 	config = require(path.resolve(process.cwd() + '/config.json')),
 	util = require('./lib/util.js'),
@@ -26,9 +27,9 @@ init();
 
 function init(){
 
-	Q.longStackSupport = true;
+	// Q.longStackSupport = true;
 
-	var dfd = Q.when();
+	// var dfd = Q.when();
 
 	global.tooSolo = {};
 
@@ -44,34 +45,72 @@ function init(){
 
 	global.tooSolo.config = config;
 
-	dfd = dfd.then(function(){
+	// dfd = dfd.then(function(){
 		console.log('\n==================== Solo 2.0 ====================\n');
-	});
+	// });
 
 	if(pluginName){	//如果指定了插件名字，则调用对应插件
 
-		dfd = dfd.then(function(){
+		// dfd = dfd.then(function(){
 			require('./lib/plugins'+pluginName)();
-		});
+		// });
 
 
 	}else{
 
-		dfd = dfd.then(coreParser.parse).then(_dealParserPlugins).then(_dealPagePlugins);
+		var tasks = [coreParser.parse];
 
+		// async.series([])
+
+		async.series([coreParser.parse,
+				_dealParserPlugins,
+				_dealPagePlugins,
+				function(){
+
+			console.log('\n=================== 博客构建完成 ===================\n');
+		}]);
+
+		// dfd = dfd.then(coreParser.parse).then(_dealParserPlugins).then(_dealPagePlugins);
+
+	// dfd = dfd.then(function(){
+		// console.log('\n=================== 博客构建完成 ===================\n');
+	// });
 	}
-	dfd = dfd.then(function(){
-		console.log('\n=================== 博客构建完成 ===================\n');
-	});
 
 }
 
-function _dealParserPlugins(){
+function _dealParserPlugins(callback){
 
-	var parserPluginFileList = util.readdirSyncRecursive(path.join(__dirname,'./lib/parserplugins')),
-		plugins = [],
-		pluginsDfd = Q.when(),
-		thisDfd = Q.defer();
+	var parserPluginsPath = path.join(__dirname,'./lib/parserplugins');
+	async.waterfall([function(callback){
+
+		fs.readdir(parserPluginsPath,function(err,fileList){
+			callback(null,fileList);
+		});
+
+	},function(fileList,callback){
+		var pluginList = [];
+		fileList.forEach(function(pluginFile){
+			var pluginName = pluginFile.replace(/\.js$/,'');
+			var disabledList = config.disabledParserPlugins;
+			if(!disabledList || disabledList.indexOf(plugin) === -1){
+				if(/\.js$/.test(pluginFile)){
+					pluginList.push(require(path.join(parserPluginsPath,pluginName)));
+				}
+			};
+		});
+		async.series(pluginList,callback)
+	}],function(err){
+		if(err){
+			console.log(err);
+		}
+		// console.log('er',err);
+		callback();
+	});
+
+	/*var parserPluginFileList = util.readdirSyncRecursive()),
+		// pluginsDfd = Q.when(),
+		// thisDfd = Q.defer();
 
 	parserPluginFileList.forEach(function(plugin){
 
@@ -81,7 +120,7 @@ function _dealParserPlugins(){
 
 			var pluginName = plugin.replace(/\.js$/,'');
 			plugins[pluginName] = require('./lib/parserplugins/'+plugin);
-			pluginsDfd = pluginsDfd.then(plugins[pluginName]);
+			// pluginsDfd = pluginsDfd.then(plugins[pluginName]);
 
 		}
 
@@ -92,39 +131,36 @@ function _dealParserPlugins(){
 		console.log(error);
 	})
 
-	return thisDfd.promise;
+	return thisDfd.promise;*/
 
 }
 
-function _dealPagePlugins(dfd){
+function _dealPagePlugins(callback){
 
-	var pagePluginFileList = util.readdirSyncRecursive(path.join(__dirname,'./lib/pageplugins')),
-		plugins = [],
-		pluginsDfd = Q.when(),
-		thisDfd = Q.defer();
+	var pagePluginsPath = path.join(__dirname,'./lib/pageplugins');
+	async.waterfall([function(callback){
 
+		fs.readdir(pagePluginsPath,function(err,fileList){
+			callback(null,fileList);
+		});
 
-	pagePluginFileList.forEach(function(plugin){
-
-
-		if(config.disabledPagePlugins && config.disabledPagePlugins.indexOf(plugin.replace(/\.js$/,'')) > -1)return;
-
-		if(/\.js$/.test(plugin)){
-
-			var pluginName = plugin.replace(/\.js$/,'');
-			plugins[pluginName] = require('./lib/pageplugins/'+plugin);
-			pluginsDfd = pluginsDfd.then(plugins[pluginName]);
-
+	},function(fileList,callback){
+		var pluginList = [];
+		fileList.forEach(function(pluginFile){
+			var pluginName = pluginFile.replace(/\.js$/,'');
+			var disabledList = config.disabledParserPlugins;
+			if(!disabledList || disabledList.indexOf(plugin) === -1){
+				if(/\.js$/.test(pluginFile)){
+					pluginList.push(require(path.join(pagePluginsPath,pluginName)));
+				}
+			};
+		});
+		async.series(pluginList,callback)
+	}],function(err){
+		if(err){
+			console.log(err);
 		}
-
+		callback();
 	});
-
-	pluginsDfd.then(function(){
-		thisDfd.resolve();
-	}).fail(function(error){
-		console.log(error);
-	});
-
-	return thisDfd.promise;
 
 }

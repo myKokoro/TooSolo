@@ -9,8 +9,8 @@
     "moment": "2.0.0",
     "pinyin": "0.0.1",
     "toozip": "latest",
-    "q": "0.9.4",
-    "commander": "~2.1.0"
+    "commander": "~2.1.0",
+    "async": "~0.2.10"
   },
   "devDependencies": {},
   "scripts": {},
