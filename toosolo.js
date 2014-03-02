@@ -2,10 +2,25 @@
 
 var path = require('path'),
 	Q = require('q'),
+	commander = require('commander'),
 	config = require(path.resolve(process.cwd() + '/config.json')),
 	util = require('./lib/util.js'),
 	coreParser = require('./lib/coreparser.js'),
-	pluginName = process.argv.length>=2 ? process.argv[2] : '';
+	pluginName;
+
+commander
+    .version('2.0.10')
+    .usage('[--选项 值]')
+    .option('-i, --init', '在当前目录初始化TooSolo文件')
+    .option('-s, --skin', '将默认皮肤复制到当前项目并使用该皮肤')
+    .parse(process.argv);
+
+if (commander.init) {
+	pluginName = 'init';
+}else if(commander.skin){
+	pluginName = 'defineSkin';
+}
+
 
 init();
 
@@ -48,7 +63,7 @@ function init(){
 	dfd = dfd.then(function(){
 		console.log('\n=================== 博客构建完成 ===================\n');
 	});
-	
+
 }
 
 function _dealParserPlugins(){
@@ -67,7 +82,7 @@ function _dealParserPlugins(){
 			var pluginName = plugin.replace(/\.js$/,'');
 			plugins[pluginName] = require('./lib/parserplugins/'+plugin);
 			pluginsDfd = pluginsDfd.then(plugins[pluginName]);
-			
+
 		}
 
 	});
@@ -87,7 +102,7 @@ function _dealPagePlugins(dfd){
 		plugins = [],
 		pluginsDfd = Q.when(),
 		thisDfd = Q.defer();
-		
+
 
 	pagePluginFileList.forEach(function(plugin){
 
@@ -99,7 +114,7 @@ function _dealPagePlugins(dfd){
 			var pluginName = plugin.replace(/\.js$/,'');
 			plugins[pluginName] = require('./lib/pageplugins/'+plugin);
 			pluginsDfd = pluginsDfd.then(plugins[pluginName]);
-			
+
 		}
 
 	});
