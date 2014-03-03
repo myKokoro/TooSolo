@@ -4,9 +4,9 @@ var path = require('path'),
 	fs = require('fs'),
 	async = require('async'),
 	commander = require('commander'),
-	config = require(path.resolve(process.cwd() + '/config.json')),
-	util = require('./lib/util.js'),
-	coreParser = require('./lib/coreparser.js'),
+	config,
+	util,
+	coreParser,
 	pluginName;
 
 commander
@@ -16,40 +16,43 @@ commander
     .option('-s, --skin', '将默认皮肤复制到当前项目并使用该皮肤')
     .parse(process.argv);
 
-if (commander.init) {
-	pluginName = 'init';
-}else if(commander.skin){
-	pluginName = 'defineSkin';
-}
+
 
 
 init();
 
 function init(){
 
-	// Q.longStackSupport = true;
+	if (commander.init) {
+		pluginName = 'init';
+	}else{
+		config = require(path.resolve(process.cwd() + '/config.json'));
+		util = require('./lib/util.js');
+		coreParser = require('./lib/coreparser.js');
+		global.tooSolo = {};
 
-	// var dfd = Q.when();
+		if(!config.skinPath){
+			config.skinPath = path.join(__dirname,'./skin');
+		}
+		if(!config.globalPath){
+			config.globalPath = path.join(config.sourcePath,'./global');
+		}
+		if(!config.blogPath){
+			config.blogPath = path.join(config.sourcePath,'./blogs');
+		}
 
-	global.tooSolo = {};
+		global.tooSolo.config = config;
 
-	if(!config.skinPath){
-		config.skinPath = path.join(__dirname,'./skin');
+		if(commander.skin){
+			pluginName = 'skin';
+		}
 	}
-	if(!config.globalPath){
-		config.globalPath = path.join(config.sourcePath,'./global');
-	}
-	if(!config.blogPath){
-		config.blogPath = path.join(config.sourcePath,'./blogs');
-	}
-
-	global.tooSolo.config = config;
 
 	console.log('\n==================== Solo 2.0 ====================\n');
 
 	if(pluginName){	//如果指定了插件名字，则调用对应插件
 
-		require('./lib/pageplugins/'+pluginName)();
+		require('./lib/sysplugins/'+pluginName)();
 
 		console.log('\n======================= 完成 ======================\n');
 

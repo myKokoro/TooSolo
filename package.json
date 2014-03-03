@@ -10,7 +10,8 @@
     "pinyin": "0.0.1",
     "toozip": "latest",
     "commander": "~2.1.0",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "unzip": "~0.1.9"
   },
   "devDependencies": {},
   "scripts": {},
