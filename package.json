@@ -1,6 +1,6 @@
 {
   "name": "toosolo",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "基于Node.js的静态博客程序",
   "main": "solo.js",
   "dependencies": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/TooooBug/solo.git"
+    "url": "git://github.com/TooBug/toosolo.git"
   },
   "keywords": [
     "blog",
