@@ -45,16 +45,13 @@ function init(){
 
 	global.tooSolo.config = config;
 
-	// dfd = dfd.then(function(){
-		console.log('\n==================== Solo 2.0 ====================\n');
-	// });
+	console.log('\n==================== Solo 2.0 ====================\n');
 
 	if(pluginName){	//如果指定了插件名字，则调用对应插件
 
-		// dfd = dfd.then(function(){
-			require('./lib/plugins'+pluginName)();
-		// });
+		require('./lib/pageplugins/'+pluginName)();
 
+		console.log('\n======================= 完成 ======================\n');
 
 	}else{
 
